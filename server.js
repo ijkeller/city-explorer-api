@@ -47,7 +47,9 @@ async function getWeather(request, response) {
 }
 
 app.get('/movies', async (request, response) => {
-
+    let mdbKey = process.env.REACT_APP_MOVIEDB_API_KEY
+    let movieUrl = `https://api.themoviedb.org/3/movie/550?api_key=${mdbKey}`
+    // https://api.themoviedb.org/3/search/company?api_key=f9f985edd04d582e3c4a2513c51593fd&page=1
 })
 
 // Catch all
