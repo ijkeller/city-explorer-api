@@ -26,24 +26,25 @@ class Forecast {
     }
 }
 
-app.get('/weather', (request, response) => {
-    let query = request.query.search;
-    let latlon = request.query.lat;
+app.get('/weather', getWeather);
+
+async function getWeather(request, response) {
+
+    // process.env.REACT_APP_WEATHER_API_KEY
+
+    let search = request.query.search;
+    let lat = request.query.lat;
+    let lon = request.query.lon;
     let cityData = {}
+    let weatherUrl = ``;
     weatherData.forEach((element) => {
-        console.log(latlon == `lat=${element.lat},lon=${element.lon}`)
-        // console.log(`lat=${element.lat},lon=${element.lon}`)
-        // if( latlon == `lat=${element.lat},lon=${element.lon}` ){
-        //     console.log('true')
-        //     cityData = element
-        // } 
+        if( lat == element.lat && lon == element.lon ){
+            cityData = element
+        } 
     })
-    // console.log(cityData)
-    // let name = cityData.city_name
-    // let lat = cityData.lat
-    // let lon = cityData.lon
     const dayData = (num) => {
         let idxNum = num - 1;
+        console.log(`cityData.data[idxNum] = ${cityData.data[idxNum]}`)
         let date = cityData.data[idxNum].valid_date;
         let desc = cityData.data[idxNum].weather.description;
         return new Forecast(date, desc);
@@ -51,9 +52,14 @@ app.get('/weather', (request, response) => {
     let one = dayData(1);
     let two = dayData(2);
     let three = dayData(3);
-    let forecastArray = []
-    forecastArray.push(one, two, three)
-    response.status(200).send(forecastArray)
+    let forecastArray = [];
+    forecastArray.push(one, two, three);
+    console.log(forecastArray)
+    response.status(200).send(forecastArray);
+}
+
+app.get('/movies', async (request, response) => {
+    
 })
 
 // Catch all
