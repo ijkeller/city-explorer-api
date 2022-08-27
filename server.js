@@ -8,9 +8,9 @@ const axios = require('axios');
 
 // Express Instance:
 const app = express();
-const PORT = process.env.REACT_APP_PORT || 5050;
+// const PORT = process.env.REACT_APP_PORT || 5050;
 app.use(cors());
-app.listen(PORT, () => console.log(`It's Alive!! Listening on port: ${PORT}`));
+// app.listen(PORT, () => console.log(`It's Alive!! Listening on port: ${PORT}`));
 
 class Forecast {
     constructor(obj) {
