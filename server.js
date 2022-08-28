@@ -47,7 +47,7 @@ async function getWeather(request, response) {
     let lat = request.query.lat;
     let lon = request.query.lon;
     let cityData = {}
-    let weatherUrl = `https://api.weatherbit.io/v2.0/forecast/daily?units=I&lat=${lat}&lon=${lon}&key=${process.env.REACT_APP_WEATHER_API_KEY}`;
+    let weatherUrl = `https://api.weatherbit.io/v2.0/forecast/daily?units=I&lat=${lat}&lon=${lon}&key=${process.env.WEATHER_API_KEY}`;
 
     try {
         let weatherResponse = await axios.get(weatherUrl);
@@ -60,7 +60,7 @@ async function getWeather(request, response) {
 }
 
 app.get('/movies', async (request, response) => {
-    let mdbKey = process.env.REACT_APP_MOVIEDB_API_KEY;
+    let mdbKey = process.env.MOVIEDB_API_KEY;
     let query = request.query.search;
     let movieUrl = `https://api.themoviedb.org/3/search/movie?api_key=${mdbKey}&page=1&query=${query}&include_adult=false`
 
