@@ -134,3 +134,15 @@ Start time: 2:00 pm
 Finish time: 5:54 pm
 
 Actual time needed to complete: 4 hours
+
+
+Name of feature: 11: Modules
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 12:00 pm
+
+Finish time: 2:00 pm
+
+Actual time needed to complete: 2 hours
+
