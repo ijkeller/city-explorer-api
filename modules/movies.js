@@ -22,7 +22,6 @@ async function getMovies(request, response) {
         let movieArray = movieResponse.data.results.map((element) => new MovieElement(element) )
         response.status(200).send(movieArray)
 
-
     } catch (err) {
         console.log(`Error message: ${err}`)
         response.status(500).send('server error')
